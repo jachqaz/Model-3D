@@ -1,13 +1,13 @@
 package min3d.core;
 
+import android.util.Log;
+
 import java.nio.IntBuffer;
 
 import javax.microedition.khronos.opengles.GL10;
 import javax.microedition.khronos.opengles.GL11;
 
 import min3d.Min3d;
-
-import android.util.Log;
 
 /**
  * Simple static class holding values representing various capabilities of 

@@ -1,5 +1,7 @@
 package min3d.core;
 
+import android.util.Log;
+
 import java.util.ArrayList;
 
 import min3d.Min3d;
@@ -10,7 +12,6 @@ import min3d.vos.CameraVo;
 import min3d.vos.Color4;
 import min3d.vos.Color4Managed;
 import min3d.vos.FogType;
-import android.util.Log;
 
 
 public class Scene implements IObject3dContainer, IDirtyParent
@@ -30,9 +31,9 @@ public class Scene implements IObject3dContainer, IDirtyParent
 	private boolean _fogEnabled;
 
 	private ISceneController _sceneController;
-	
 
-	public Scene(ISceneController $sceneController) 
+
+    public Scene(ISceneController $sceneController)
 	{
 		_sceneController = $sceneController;
 		_lights = new ManagedLightList();
@@ -264,7 +265,7 @@ public class Scene implements IObject3dContainer, IDirtyParent
 	/**
 	 * Used by Renderer 
 	 */
-	ArrayList<Object3d> children() /*package-private*/ 
+    ArrayList<Object3d> children() /*package-private*/
 	{
 		return _children;
 	}

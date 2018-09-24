@@ -1,5 +1,9 @@
 package min3d.parser;
 
+import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.util.Log;
+
 import java.io.BufferedInputStream;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -12,9 +16,6 @@ import min3d.animation.AnimationObject3d;
 import min3d.animation.KeyFrame;
 import min3d.vos.Number3d;
 import min3d.vos.Uv;
-import android.content.res.Resources;
-import android.graphics.Bitmap;
-import android.util.Log;
 
 public class MD2Parser extends AParser implements IParser {
 	private MD2Header header;

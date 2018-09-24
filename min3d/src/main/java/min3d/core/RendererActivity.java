@@ -1,11 +1,12 @@
 package min3d.core;
 
-import min3d.Shared;
-import min3d.interfaces.ISceneController;
 import android.app.Activity;
 import android.opengl.GLSurfaceView;
 import android.os.Bundle;
 import android.os.Handler;
+
+import min3d.Shared;
+import min3d.interfaces.ISceneController;
 
 /**
  * Extend this class when creating your min3d-based Activity. 
@@ -26,16 +27,16 @@ public class RendererActivity extends Activity implements ISceneController
 	protected Handler _updateSceneHander;
 	
     private boolean _renderContinuously;
-    
 
-	final Runnable _initSceneRunnable = new Runnable() 
+
+    final Runnable _initSceneRunnable = new Runnable()
 	{
         public void run() {
             onInitScene();
         }
     };
-    
-	final Runnable _updateSceneRunnable = new Runnable() 
+
+    final Runnable _updateSceneRunnable = new Runnable()
     {
         public void run() {
             onUpdateScene();
@@ -44,7 +45,7 @@ public class RendererActivity extends Activity implements ISceneController
     
 
     @Override
-	protected void onCreate(Bundle savedInstanceState) 
+    protected void onCreate(Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);
 

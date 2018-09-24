@@ -1,12 +1,8 @@
 package com.myapplication;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
-import android.view.ViewGroup;
-
-import org.rajawali3d.view.ISurface;
-import org.rajawali3d.view.SurfaceView;
 
 public class MainActivity extends AppCompatActivity {
     BasicRenderer renderer;
@@ -15,14 +11,28 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        final SurfaceView surface = new SurfaceView(this);
-        surface.setFrameRate(60.0);
-        surface.setRenderMode(ISurface.RENDERMODE_WHEN_DIRTY);
+        ItemVo items = new ItemVo("Load model from .3ds file", ExampleLoad3DSFile.class, "ExampleLoad3DSFile.java");
+        this.startActivity(new Intent(this, items.cls));
+//        final SurfaceView surface = new SurfaceView(this);
+//        surface.setFrameRate(60.0);
+//        surface.setRenderMode(ISurface.RENDERMODE_WHEN_DIRTY);
+//
+//        // Add mSurface to your root view
+//        addContentView(surface, new ActionBar.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT));
+//
+//        renderer = new BasicRenderer(this);
+//        surface.setSurfaceRenderer(renderer);
+    }
 
-        // Add mSurface to your root view
-        addContentView(surface, new ActionBar.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT));
+    class ItemVo {
+        public String filename;
+        public Class<?> cls;
+        public String label;
 
-        renderer = new BasicRenderer(this);
-        surface.setSurfaceRenderer(renderer);
+        public ItemVo(String $label, Class<?> $class, String $filename) {
+            label = $label;
+            cls = $class;
+            filename = $filename;
+        }
     }
 }

@@ -82,7 +82,7 @@ public class Sphere extends Object3dContainer
 		for (r = 0; r <= _rows; r++)
 		{
 			float v = (float)r / (float)_rows; // [0,1]
-			float theta1 = v * (float)Math.PI; // [0,PI]
+            float theta1 = v * (float) Math.PI; // [0,PI]
 
 			n.setAll(0,1,0);
 			n.rotateZ(theta1); 
@@ -117,8 +117,8 @@ public class Sphere extends Object3dContainer
 			{
 				int ul = offset  +  c;
 				int ur = offset  +  c+1;
-				int br = offset  +  (int)(c + 1 + colLength);
-				int bl = offset  +  (int)(c + 0 + colLength);
+                int br = offset + c + 1 + colLength;
+                int bl = offset + c + 0 + colLength;
 				
 				Utils.addQuad(this, ul,ur,br,bl);
 			}

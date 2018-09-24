@@ -1,12 +1,13 @@
 package min3d.core;
 
+import android.graphics.Bitmap;
+import android.util.Log;
+
 import java.util.HashMap;
 import java.util.Set;
 
 import min3d.Min3d;
 import min3d.Shared;
-import android.graphics.Bitmap;
-import android.util.Log;
 
 /**
  * TextureManager is responsible for managing textures for the whole environment. 
@@ -39,7 +40,7 @@ public class TextureManager
 		if (_idToTextureName != null) 
 		{
 			Set<String> s = _idToTextureName.keySet();
-			Object[] a = s.toArray(); 
+            Object[] a = s.toArray();
 			for (int i = 0; i < a.length; i++) {
 				int glId = getGlTextureId((String)a[i]);
 				Shared.renderer().deleteTexture(glId);
@@ -59,7 +60,8 @@ public class TextureManager
 	 */
 	public String addTextureId(Bitmap $b, String $id, boolean $generateMipMap)
 	{
-		if (_idToTextureName.containsKey($id)) throw new Error("Texture id \"" + $id + "\" already exists."); 
+        if (_idToTextureName.containsKey($id))
+            throw new Error("Texture id \"" + $id + "\" already exists.");
 
 		int glId = Shared.renderer().uploadTextureAndReturnId($b, $generateMipMap);
 
@@ -156,7 +158,7 @@ public class TextureManager
 	
 	private void logContents()
 	{
-		Log.v(Min3d.TAG, "TextureManager contents updated - " + arrayToString( getTextureIds() ) );		
+        Log.v(Min3d.TAG, "TextureManager contents updated - " + arrayToString(getTextureIds()));
 	}
 	
 	public String getNewAtlasId() {

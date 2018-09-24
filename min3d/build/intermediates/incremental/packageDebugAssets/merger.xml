@@ -1,11 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merger version="3">
-    <dataSet config="main">
-        <source path="F:\AndroidStudioProjects\New\min3d-AndroidStudio\min3d\src\main\assets" />
-        <source
-            path="F:\AndroidStudioProjects\New\min3d-AndroidStudio\min3d\build\generated\assets\shaders\debug" />
-    </dataSet>
-    <dataSet config="debug">
-        <source path="F:\AndroidStudioProjects\New\min3d-AndroidStudio\min3d\src\debug\assets" />
-    </dataSet>
-</merger>
+<merger version="3"><dataSet config="main"><source path="F:\AndroidStudioProjects\MyApp\min3d\src\main\assets"/><source path="F:\AndroidStudioProjects\MyApp\min3d\build\generated\assets\shaders\debug"/></dataSet><dataSet config="debug"><source path="F:\AndroidStudioProjects\MyApp\min3d\src\debug\assets"/></dataSet></merger>

@@ -1,5 +1,9 @@
 package min3d;
 
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.ByteBuffer;
@@ -7,9 +11,6 @@ import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
 
 import min3d.core.Object3d;
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 
 
 public class Utils 

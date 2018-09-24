@@ -1,5 +1,9 @@
 package min3d.parser;
 
+import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.util.Log;
+
 import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -9,9 +13,6 @@ import min3d.Shared;
 import min3d.core.Object3dContainer;
 import min3d.vos.Number3d;
 import min3d.vos.Uv;
-import android.content.res.Resources;
-import android.graphics.Bitmap;
-import android.util.Log;
 
 public class Max3DSParser extends AParser implements IParser {
 	private final int IDENTIFIER_3DS = 0x4D4D;

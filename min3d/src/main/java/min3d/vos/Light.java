@@ -15,19 +15,19 @@ public class Light extends AbstractDirtyManaged implements IDirtyParent
 	/**
 	 * Position is relative to eye space, not world space.
 	 */
-	public Number3dManaged 		position;
+    public Number3dManaged position;
 	
 	/**
 	 * Direction is a vector and should be normalized.
 	 */
-	public Number3dManaged 		direction;  
-	
-	public Color4Managed 		ambient;
-	public Color4Managed 		diffuse;
-	public Color4Managed 		specular;
-	public Color4Managed 		emissive;
-	
-	private LightType			_type;
+    public Number3dManaged direction;
+
+    public Color4Managed ambient;
+    public Color4Managed diffuse;
+    public Color4Managed specular;
+    public Color4Managed emissive;
+
+    private LightType _type;
 
 	public Light()
 	{
@@ -37,16 +37,16 @@ public class Light extends AbstractDirtyManaged implements IDirtyParent
 		 diffuse = new Color4Managed(255,255,255, 255, this);
 		 specular = new Color4Managed(0,0,0,255, this);
 		 emissive = new Color4Managed(0,0,0,255, this);
-		 
-		 position = new Number3dManaged(0f, 0f, 1f, this); 			
-		 
-		 direction = new Number3dManaged(0f, 0f, -1f, this);	
+
+        position = new Number3dManaged(0f, 0f, 1f, this);
+
+        direction = new Number3dManaged(0f, 0f, -1f, this);
 		 _spotCutoffAngle = new FloatManaged(180, this);		
-		 _spotExponent = new FloatManaged(0f, this);			
-		 
-		 _attenuation = new Number3dManaged(1f,0f,0f, this); 	
-		 
-		 _type = LightType.DIRECTIONAL;								
+		 _spotExponent = new FloatManaged(0f, this);
+
+        _attenuation = new Number3dManaged(1f, 0f, 0f, this);
+
+        _type = LightType.DIRECTIONAL;
 		 
 		 _isVisible = new BooleanManaged(true, this);
 		 

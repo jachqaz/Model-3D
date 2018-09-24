@@ -56,7 +56,7 @@ public class Vertices
 	}
 	
 	public Vertices(Number3dBufferList $points, UvBufferList $uvs, Number3dBufferList $normals,
-			Color4BufferList $colors)
+                    Color4BufferList $colors)
 	{
 		_points = $points;
 		_uvs = $uvs;

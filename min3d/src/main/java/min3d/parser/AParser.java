@@ -1,7 +1,10 @@
 package min3d.parser;
 
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
+import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.Bitmap.Config;
+import android.util.Log;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -17,10 +20,6 @@ import min3d.core.Object3dContainer;
 import min3d.vos.Color4;
 import min3d.vos.Number3d;
 import min3d.vos.Uv;
-import android.content.res.Resources;
-import android.graphics.Bitmap;
-import android.graphics.Bitmap.Config;
-import android.util.Log;
 
 /**
  * Abstract parser class with basic parsing functionality.

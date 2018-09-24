@@ -1,5 +1,13 @@
 package min3d.core;
 
+import android.app.ActivityManager;
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.opengl.GLSurfaceView;
+import android.opengl.GLU;
+import android.opengl.GLUtils;
+import android.util.Log;
+
 import java.nio.FloatBuffer;
 import java.nio.IntBuffer;
 
@@ -14,13 +22,6 @@ import min3d.vos.FrustumManaged;
 import min3d.vos.Light;
 import min3d.vos.RenderType;
 import min3d.vos.TextureVo;
-import android.app.ActivityManager;
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.opengl.GLSurfaceView;
-import android.opengl.GLU;
-import android.opengl.GLUtils;
-import android.util.Log;
 
 
 public class Renderer implements GLSurfaceView.Renderer
@@ -62,7 +63,7 @@ public class Renderer implements GLSurfaceView.Renderer
 		_memoryInfo = new ActivityManager.MemoryInfo();
 	}
 
-	public void onSurfaceCreated(GL10 $gl, EGLConfig eglConfig) 
+    public void onSurfaceCreated(GL10 $gl, EGLConfig eglConfig)
 	{
 		Log.i(Min3d.TAG, "Renderer.onSurfaceCreated()");
 		
@@ -74,8 +75,8 @@ public class Renderer implements GLSurfaceView.Renderer
 		
 		_scene.init();
 	}
-	
-	public void onSurfaceChanged(GL10 gl, int w, int h) 
+
+    public void onSurfaceChanged(GL10 gl, int w, int h)
 	{
 		Log.i(Min3d.TAG, "Renderer.onSurfaceChanged()");
 		
@@ -141,7 +142,7 @@ public class Renderer implements GLSurfaceView.Renderer
 		_gl.glMatrixMode(GL10.GL_MODELVIEW);
 		_gl.glLoadIdentity();
 
-		GLU.gluLookAt(_gl, 
+        GLU.gluLookAt(_gl,
 			_scene.camera().position.x,_scene.camera().position.y,_scene.camera().position.z,
 			_scene.camera().target.x,_scene.camera().target.y,_scene.camera().target.z,
 			_scene.camera().upAxis.x,_scene.camera().upAxis.y,_scene.camera().upAxis.z);
@@ -349,7 +350,7 @@ public class Renderer implements GLSurfaceView.Renderer
 		if ($o.hasVertexColors() && $o.vertexColorsEnabled()) {
 			$o.vertices().colors().buffer().position(0);
 			_gl.glColorPointer(4, GL10.GL_UNSIGNED_BYTE, 0, $o.vertices().colors().buffer());
-			_gl.glEnableClientState(GL10.GL_COLOR_ARRAY); 
+            _gl.glEnableClientState(GL10.GL_COLOR_ARRAY);
 		}
 		else {
 			_gl.glColor4f(
@@ -373,8 +374,8 @@ public class Renderer implements GLSurfaceView.Renderer
 		}
 		
 		// Point size
-		
-		if ($o.renderType() == RenderType.POINTS) 
+
+        if ($o.renderType() == RenderType.POINTS)
 		{
 			if ($o.pointSmoothing()) 
 				_gl.glEnable(GL10.GL_POINT_SMOOTH);
@@ -385,8 +386,8 @@ public class Renderer implements GLSurfaceView.Renderer
 		}
 
 		// Line properties
-		
-		if ($o.renderType() == RenderType.LINES || $o.renderType() == RenderType.LINE_STRIP || $o.renderType() == RenderType.LINE_LOOP) 
+
+        if ($o.renderType() == RenderType.LINES || $o.renderType() == RenderType.LINE_STRIP || $o.renderType() == RenderType.LINE_LOOP)
 		{
 			if ( $o.lineSmoothing() == true) {
 				_gl.glEnable(GL10.GL_LINE_SMOOTH);
@@ -445,8 +446,8 @@ public class Renderer implements GLSurfaceView.Renderer
 
 			_gl.glDrawElements(
 					$o.renderType().glValue(),
-					len * FacesBufferedList.PROPERTIES_PER_ELEMENT, 
-					GL10.GL_UNSIGNED_SHORT, 
+					len * FacesBufferedList.PROPERTIES_PER_ELEMENT,
+                    GL10.GL_UNSIGNED_SHORT,
 					$o.faces().buffer());
 		}
 		else
@@ -481,7 +482,7 @@ public class Renderer implements GLSurfaceView.Renderer
 		for (int i = 0; i < RenderCaps.maxTextureUnits(); i++)
 		{
 			_gl.glActiveTexture(GL10.GL_TEXTURE0 + i);
-			_gl.glClientActiveTexture(GL10.GL_TEXTURE0 + i); 
+            _gl.glClientActiveTexture(GL10.GL_TEXTURE0 + i);
 
 			if ($o.hasUvs() && $o.texturesEnabled())
 			{
@@ -498,7 +499,7 @@ public class Renderer implements GLSurfaceView.Renderer
 				    _gl.glEnable(GL10.GL_TEXTURE_2D);
 					_gl.glEnableClientState(GL10.GL_TEXTURE_COORD_ARRAY);
 
-					int minFilterType = _textureManager.hasMipMap(textureVo.textureId) ? GL10.GL_LINEAR_MIPMAP_NEAREST : GL10.GL_NEAREST; 
+                    int minFilterType = _textureManager.hasMipMap(textureVo.textureId) ? GL10.GL_LINEAR_MIPMAP_NEAREST : GL10.GL_NEAREST;
 					_gl.glTexParameterf(GL10.GL_TEXTURE_2D, GL10.GL_TEXTURE_MIN_FILTER, minFilterType);
 					_gl.glTexParameterf(GL10.GL_TEXTURE_2D, GL10.GL_TEXTURE_MAG_FILTER, GL10.GL_LINEAR); // (OpenGL default)
 					
@@ -510,7 +511,7 @@ public class Renderer implements GLSurfaceView.Renderer
 					
 					// texture wrapping settings
 					_gl.glTexParameterx(GL10.GL_TEXTURE_2D, GL10.GL_TEXTURE_WRAP_S, (textureVo.repeatU ? GL10.GL_REPEAT : GL10.GL_CLAMP_TO_EDGE));
-					_gl.glTexParameterx(GL10.GL_TEXTURE_2D, GL10.GL_TEXTURE_WRAP_T, (textureVo.repeatV ? GL10.GL_REPEAT : GL10.GL_CLAMP_TO_EDGE));		
+                    _gl.glTexParameterx(GL10.GL_TEXTURE_2D, GL10.GL_TEXTURE_WRAP_T, (textureVo.repeatV ? GL10.GL_REPEAT : GL10.GL_CLAMP_TO_EDGE));
 
 					// texture offset, if any
 					if (textureVo.offsetU != 0 || textureVo.offsetV != 0)
@@ -643,15 +644,15 @@ public class Renderer implements GLSurfaceView.Renderer
 		// Do OpenGL settings which we are using as defaults, or which we will not be changing on-draw
 		
 	    // Explicit depth settings
-		_gl.glEnable(GL10.GL_DEPTH_TEST);									
+        _gl.glEnable(GL10.GL_DEPTH_TEST);
 		_gl.glClearDepthf(1.0f);
-		_gl.glDepthFunc(GL10.GL_LESS);										
+        _gl.glDepthFunc(GL10.GL_LESS);
 		_gl.glDepthRangef(0,1f);											
 		_gl.glDepthMask(true);												
 
 		// Alpha enabled
-		_gl.glEnable(GL10.GL_BLEND);										
-		_gl.glBlendFunc(GL10.GL_SRC_ALPHA, GL10.GL_ONE_MINUS_SRC_ALPHA); 	
+        _gl.glEnable(GL10.GL_BLEND);
+        _gl.glBlendFunc(GL10.GL_SRC_ALPHA, GL10.GL_ONE_MINUS_SRC_ALPHA);
 		
 		// "Transparency is best implemented using glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA) 
 		// with primitives sorted from farthest to nearest."

@@ -93,11 +93,11 @@ public class Torus extends Object3dContainer {
 	private Vertex3d getVertex(float a1, float r1, float a2, float r2) {
 		Vertex3d vertex = new Vertex3d();
 		vertex.normal = new Number3d();
-		
-		float ca1 = (float)Math.cos(a1);
-		float sa1 = (float)Math.sin(a1);
-		float ca2 = (float)Math.cos(a2);
-		float sa2 = (float)Math.sin(a2);
+
+        float ca1 = (float) Math.cos(a1);
+        float sa1 = (float) Math.sin(a1);
+        float ca2 = (float) Math.cos(a2);
+        float sa2 = (float) Math.sin(a2);
 		
 		float centerX = r1 * ca1;
 		float centerZ = -r1 * sa1;

@@ -1,8 +1,9 @@
 package min3d;
 
-import min3d.core.TextureManager;
-import min3d.core.Renderer;
 import android.content.Context;
+
+import min3d.core.Renderer;
+import min3d.core.TextureManager;
 
 /**
  * Holds static references to TextureManager, Renderer, and the application Context. 

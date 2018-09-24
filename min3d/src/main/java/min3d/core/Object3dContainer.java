@@ -23,7 +23,7 @@ public class Object3dContainer extends Object3d implements IObject3dContainer
 		super($maxVerts, $maxFaces, true,true,true);
 	}
 
-	public Object3dContainer(int $maxVerts, int $maxFaces,  Boolean $useUvs, Boolean $useNormals, Boolean $useVertexColors)
+    public Object3dContainer(int $maxVerts, int $maxFaces, Boolean $useUvs, Boolean $useNormals, Boolean $useVertexColors)
 	{
 		super($maxVerts, $maxFaces, $useUvs,$useNormals,$useVertexColors);
 	}
@@ -43,8 +43,8 @@ public class Object3dContainer extends Object3d implements IObject3dContainer
 		$o.parent(this);
 		$o.scene(this.scene());
 	}
-	
-	public void addChildAt(Object3d $o, int $index) 
+
+    public void addChildAt(Object3d $o, int $index)
 	{
 		_children.add($index, $o);
 		
@@ -62,8 +62,8 @@ public class Object3dContainer extends Object3d implements IObject3dContainer
 		}
 		return b;
 	}
-	
-	public Object3d removeChildAt(int $index) 
+
+    public Object3d removeChildAt(int $index)
 	{
 		Object3d o = _children.remove($index);
 		if (o != null) {
@@ -72,8 +72,8 @@ public class Object3dContainer extends Object3d implements IObject3dContainer
 		}
 		return o;
 	}
-	
-	public Object3d getChildAt(int $index) 
+
+    public Object3d getChildAt(int $index)
 	{
 		return _children.get($index);
 	}
@@ -90,7 +90,7 @@ public class Object3dContainer extends Object3d implements IObject3dContainer
 		return null;
 	}
 
-	public int getChildIndexOf(Object3d $o) 
+    public int getChildIndexOf(Object3d $o)
 	{
 		return _children.indexOf($o);		
 	}

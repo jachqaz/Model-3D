@@ -1,11 +1,14 @@
 package min3d.parser;
 
+import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.util.Log;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.Calendar;
-import java.util.HashMap;
 import java.util.StringTokenizer;
 
 import min3d.Min3d;
@@ -15,9 +18,6 @@ import min3d.core.Object3dContainer;
 import min3d.vos.Color4;
 import min3d.vos.Number3d;
 import min3d.vos.Uv;
-import android.content.res.Resources;
-import android.graphics.Bitmap;
-import android.util.Log;
 
 /**
  * Parses Wavefront OBJ files. Basic version, this is still a work in progress!
@@ -108,7 +108,7 @@ public class ObjParser extends AParser implements IParser {
 				} else if (type.equals(USE_MATERIAL)) {
 					currentMaterialKey = parts.nextToken();
 				} else if (type.equals(OBJECT)) {
-					String objName = parts.hasMoreTokens() ? parts.nextToken() : ""; 
+                    String objName = parts.hasMoreTokens() ? parts.nextToken() : "";
 					if(firstObject)
 					{
 						Log.d(Min3d.TAG, "Create object " + objName);

@@ -1,9 +1,9 @@
 package min3d.core;
 
+import android.util.Log;
+
 import java.util.ArrayList;
 import java.util.HashMap;
-
-import android.util.Log;
 
 import min3d.Min3d;
 import min3d.vos.Light;
@@ -106,7 +106,7 @@ public class ManagedLightList
 	}
 
 	public Light[] toArray() {
-		return (Light[]) _lights.toArray(new Light[_lights.size()]);
+        return _lights.toArray(new Light[_lights.size()]);
 	}
 
 	/**
